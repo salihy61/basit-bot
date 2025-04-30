@@ -9,6 +9,9 @@ CHAT_ID = os.getenv("CHAT_ID")
 COINS = os.getenv("COINS", "BTCUSDT").split(",")
 
 bot = Bot(token=TELEGRAM_TOKEN)
+client = UMFutures()
+
+bot = Bot(token=TELEGRAM_TOKEN)
 
 client = UMFutures()
 
