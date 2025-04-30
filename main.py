@@ -4,11 +4,12 @@ from telegram import Bot
 from datetime import datetime, timedelta
 import pandas as pd
 
-TELEGRAM_TOKEN = os.getenv("7958567842:AAH4vwZ1lqhcC4O-UJ4XgjIgcAE7nDjqPjU")
-CHAT_ID = os.getenv("1462113916")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
 COINS = os.getenv("COINS", "BTCUSDT").split(",")
 
 bot = Bot(token=TELEGRAM_TOKEN)
+
 client = UMFutures()
 
 def load_last_signal(symbol):
