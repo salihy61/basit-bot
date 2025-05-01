@@ -1,11 +1,12 @@
-import os
 import asyncio
 import requests
 from telegram import Bot
 
-TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
-SYMBOL = os.getenv("SYMBOL", "BTCUSDT")
+# 👉 Değerleri buraya elle yaz (geçici çözüm)
+TOKEN = '8063302290:AAF2fOda_pE-5YEDGYXwtqbstE4HZKJ9XiA'
+CHAT_ID = '123456789'  # kendi Telegram ID'nin rakamsal değeri
+SYMBOL = 'BTCUSDT'
+
 bot = Bot(token=TOKEN)
 
 def get_ohlcv(symbol="BTCUSDT", interval="5m", limit=2):
@@ -44,7 +45,8 @@ async def run_bot():
                     await bot.send_message(chat_id=CHAT_ID, text=f"📉 Bearish Engulf on {SYMBOL}")
         except Exception as e:
             await bot.send_message(chat_id=CHAT_ID, text=f"❌ Error: {e}")
-        await asyncio.sleep(300)  # 5 dakika
+        await asyncio.sleep(300)
 
 if __name__ == "__main__":
+    print(f"TOKEN = {repr(TOKEN)}")
     asyncio.run(run_bot())
