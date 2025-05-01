@@ -3,7 +3,7 @@ import requests
 from telegram import Bot
 
 TOKEN = '8063302290:AAF2fOda_pE-5YEDGYXwtqbstE4HZKJ9XiA'
-CHAT_ID = '123456789'  # senin Telegram ID'in
+CHAT_ID = '1462113916'  # senin Telegram ID'in
 
 bot = Bot(token=TOKEN)
 
