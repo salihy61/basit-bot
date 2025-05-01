@@ -53,7 +53,7 @@ async def run_bot():
         summary = "✅ Analiz tamamlandı. İncelenen coinler:\n" + ", ".join(analyzed)
         await bot.send_message(chat_id=CHAT_ID, text=summary)
 
-        await asyncio.sleep(300)
+        await asyncio.sleep(60)
 
 if __name__ == "__main__":
     asyncio.run(run_bot())
