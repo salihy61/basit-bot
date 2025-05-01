@@ -10,7 +10,7 @@ bot = Bot(token=TOKEN)
 SYMBOLS = ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'SOLUSDT',
            'XRPUSDT', 'DOGEUSDT', 'ADAUSDT', 'AVAXUSDT']
 
-def get_ohlcv(symbol, interval="5m", limit=2):
+def get_ohlcv(symbol, interval="1m", limit=2):
     url = f"https://api.binance.com/api/v3/klines"
     params = {"symbol": symbol, "interval": interval, "limit": limit}
     response = requests.get(url, params=params)
