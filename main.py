@@ -11,11 +11,18 @@ bot = Bot(token=TOKEN)
 def get_ohlcv(symbol="BTCUSDT", interval="5m", limit=2):
     url = f"https://api.binance.com/api/v3/klines"
     params = {"symbol": symbol, "interval": interval, "limit": limit}
-    data = requests.get(url, params=params).json()
-    return [
-        {"open": float(d[1]), "high": float(d[2]), "low": float(d[3]), "close": float(d[4])}
-        for d in data
-    ]
+    response = requests.get(url, params=params)
+
+    try:
+        data = response.json()
+        if isinstance(data, dict) and "code" in data:
+            raise ValueError(f"Binance API Error: {data}")
+        return [
+            {"open": float(d[1]), "high": float(d[2]), "low": float(d[3]), "close": float(d[4])}
+            for d in data
+        ]
+    except Exception as e:
+        raise ValueError(f"Error fetching OHLCV: {e}, response: {response.text}")
 
 def is_bullish_engulf(prev, curr):
     return prev['close'] < prev['open'] and curr['close'] > curr['open'] and \
