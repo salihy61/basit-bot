@@ -2,7 +2,7 @@ import asyncio
 import requests
 from telegram import Bot
 
-TOKEN = '7958567842:AAH4vwZ1lqhcC4O-UJ4XgjIgcAE7nDjqPjU'
+TOKEN = '8063302290:AAF2fOda_pE-5YEDGYXwtqbstE4HZKJ9XiA'
 CHAT_ID = '123456789'  # senin Telegram ID'in
 
 bot = Bot(token=TOKEN)
